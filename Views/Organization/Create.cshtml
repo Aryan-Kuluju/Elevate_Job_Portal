@@ -1,0 +1,125 @@
+﻿@model ElevateJobPortal.Models.ViewModels.OrganizationViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<h1 class="mt-4">Organization</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="#">Organization</a></li>
+    <li class="breadcrumb-item active">Create</li>
+</ol>
+
+<div class="card mb-4">
+    <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Organization</h3></div>
+    <div class="card-body">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-floating mb-3 mb-md-0">
+                        <input asp-for="OrgName" class="form-control" id="inputOrgName" />
+                        <span asp-validation-for="OrgName" class="text-danger"></span>
+                        <label for="inputOrgName">Org Name</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input asp-for="OrgAddress" class="form-control" id="inputOrgAddress" />
+                        <span asp-validation-for="OrgAddress" class="text-danger"></span>
+                        <label for="inputOrgAddress">Org Address</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" id="inputEmail" type="email" placeholder="name@example.com" />
+                <label for="inputEmail">Email address</label>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <div class="form-floating mb-3 mb-md-0">
+                        <input class="form-control" id="inputPassword" type="password" placeholder="Create a password" />
+                        <label for="inputPassword">Password</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating mb-3 mb-md-0">
+                        <input class="form-control" id="inputPasswordConfirm" type="password" placeholder="Confirm password" />
+                        <label for="inputPasswordConfirm">Confirm Password</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 mb-0">
+                <div class="d-grid">
+                    <input type="submit" value="Create" class="btn btn-primary btn-block" />
+                    @* <a class="btn btn-primary btn-block" href="login.html">Create Account</a> *@
+                    </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+<h1>Create</h1>
+
+<h4>OrganizationViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="OrgName" class="control-label"></label>
+                <input asp-for="OrgName" class="form-control" />
+                <span asp-validation-for="OrgName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrgAddress" class="control-label"></label>
+                <input asp-for="OrgAddress" class="form-control" />
+                <span asp-validation-for="OrgAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrgContact" class="control-label"></label>
+                <input asp-for="OrgContact" class="form-control" />
+                <span asp-validation-for="OrgContact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrgEmail" class="control-label"></label>
+                <input asp-for="OrgEmail" class="form-control" />
+                <span asp-validation-for="OrgEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrgImage" class="control-label"></label>
+                @* <input asp-for="OrgImage" class="form-control" /> *@
+                <input type="file" name="file" />
+                <span asp-validation-for="OrgImage" class="text-danger"></span>
+            </div>
+
+           @*  <div class="form-group">
+                <label asp-for="OrgName" class="control-label"></label>
+                <select asp-for="OrganizationId" class="form-control" asp-items="ViewBag.Orgaization">
+                    <option value="">-- Select Organization --</option>
+                </select>
+            </div> *@
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@* @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+ *@

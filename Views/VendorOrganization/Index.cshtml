@@ -1,0 +1,72 @@
+﻿@model ElevateJobPortal.Models.ViewModels.VendorOrganizationViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    int i = 1;
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                S.No
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorOrgName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorOrgAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorOrgContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorOrgEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorOrgImage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.VendorOrganizationList)
+        {
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorOrgName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorOrgAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorOrgContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VendorOrgEmail)
+            </td>
+            <td>
+                    @if (item.VendorOrgImage != null)
+                    {
+                        <img src="@item.VendorOrgImage" height="100px" width="100px" />
+                    }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.VendorOrgId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.VendorOrgId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.VendorOrgId })
+            </td>
+        </tr>
+            i++;
+}
+    </tbody>
+</table>

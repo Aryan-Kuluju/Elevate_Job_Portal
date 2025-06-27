@@ -1,0 +1,61 @@
+﻿@model ElevateJobPortal.Models.ViewModels.VendorOrganizationViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>VendorOrganizationViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="VendorOrgId" class="form-control" hidden="hidden" />
+            <div class="form-group">
+                <label asp-for="VendorOrgName" class="control-label"></label>
+                <input asp-for="VendorOrgName" class="form-control" />
+                <span asp-validation-for="VendorOrgName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VendorOrgAddress" class="control-label"></label>
+                <input asp-for="VendorOrgAddress" class="form-control" />
+                <span asp-validation-for="VendorOrgAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VendorOrgContact" class="control-label"></label>
+                <input asp-for="VendorOrgContact" class="form-control" />
+                <span asp-validation-for="VendorOrgContact" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VendorOrgEmail" class="control-label"></label>
+                <input asp-for="VendorOrgEmail" class="form-control" />
+                <span asp-validation-for="VendorOrgEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="form-control-label">Image </label>
+                <div class="col-sm-6">
+                    @if (Model.VendorOrgImage != null)
+                    {
+                        @* <img src="@Model.VendorOrgImage.Replace(" ~", "")" width="100px" height="100px"> *@
+                        <img src="@Model.VendorOrgImage" height="100px" width="100px" />
+                    }
+                    <input type="file" name="file" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@* @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} *@

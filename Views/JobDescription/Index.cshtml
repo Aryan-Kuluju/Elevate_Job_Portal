@@ -1,0 +1,89 @@
+﻿@model ElevateJobPortal.Models.ViewModels.JobDescriptionViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    int i = 1;
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                S.No.
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VendorName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobLevel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoofVacancys)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmploymentType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OfferedSalary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JobDetails)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.JobDescriptionList)
+        {
+        <tr>
+            <td>
+                @i
+            </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VendorName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobLevel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoofVacancys)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmploymentType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfferedSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobDetails)
+            </td>
+           
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.JobDescriptionId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.JobDescriptionId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.JobDescriptionId })
+            </td>
+        </tr>
+            i++;
+}
+    </tbody>
+</table>

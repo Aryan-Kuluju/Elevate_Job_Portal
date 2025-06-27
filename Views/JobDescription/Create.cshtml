@@ -1,0 +1,75 @@
+﻿@model ElevateJobPortal.Models.ViewModels.JobDescriptionViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>JobDescriptionViewModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VendorOrgId" class="control-label"></label>
+                <select asp-for="VendorOrgId" class="form-control" asp-items="ViewBag.VendorOrgaization">
+                    <option value="">-- Select Organization --</option>
+                </select>
+                <span asp-validation-for="VendorOrgId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId" class="control-label"></label>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.Category">
+                    <option value="">-- Select Organization --</option>
+                </select>
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobLevel" class="control-label"></label>
+                <input asp-for="JobLevel" class="form-control" />
+                <span asp-validation-for="JobLevel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NoofVacancys" class="control-label"></label>
+                <input asp-for="NoofVacancys" class="form-control" />
+                <span asp-validation-for="NoofVacancys" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmploymentType" class="control-label"></label>
+                <input asp-for="EmploymentType" class="form-control" />
+                <span asp-validation-for="EmploymentType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobLocation" class="control-label"></label>
+                <input asp-for="JobLocation" class="form-control" />
+                <span asp-validation-for="JobLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OfferedSalary" class="control-label"></label>
+                <input asp-for="OfferedSalary" class="form-control" />
+                <span asp-validation-for="OfferedSalary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="JobDetails" class="control-label"></label>
+                <input asp-for="JobDetails" class="form-control" />
+                <span asp-validation-for="JobDetails" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@* @section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+ *@

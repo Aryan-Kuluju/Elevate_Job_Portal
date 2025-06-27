@@ -1,0 +1,150 @@
+﻿@model ElevateJobPortal.Models.ViewModels.OrganizationViewModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    int i = 1;
+}
+
+<h1 class="mt-4">Organization</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item"><a href="#">Organization</a></li>
+    <li class="breadcrumb-item active">Table</li>
+</ol>
+
+<a class="btn btn-primary btn-block" asp-action="Create">Create Organization</a>
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        DataTable Example
+    </div>
+    <div class="card-body">
+        <table id="datatablesSimple">
+            <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>@Html.DisplayNameFor(model => model.OrgName)</th>
+                    <th>@Html.DisplayNameFor(model => model.OrgAddress)</th>
+                    <th>@Html.DisplayNameFor(model => model.OrgContact)</th>
+                    <th>@Html.DisplayNameFor(model => model.OrgEmail)</th>
+                    <th>@Html.DisplayNameFor(model => model.OrgImage)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            @* <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Office</th>
+                    <th>Age</th>
+                    <th>Start date</th>
+                    <th>Salary</th>
+                </tr>
+            </tfoot> *@
+            <tbody>
+                @if (Model.OrganizationList.Count > 0)
+                {
+                    @foreach (var item in Model.OrganizationList)
+                    {
+                        <tr>
+                            <td>@i</td>
+                            <td>@Html.DisplayFor(modelItem => item.OrgName)</td>
+                            <td>@Html.DisplayFor(modelItem => item.OrgAddress)</td>
+                            <td>@Html.DisplayFor(modelItem => item.OrgContact)</td>
+                            <td>@Html.DisplayFor(modelItem => item.OrgEmail)</td>
+                            <td>
+                                @if (item.OrgImage != null)
+                                {
+                                    <img src="@item.OrgImage" height="100px" width="100px" />
+                                }
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.OrganizationId }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.OrganizationId })
+                            </td>
+                        </tr>
+                        i++;
+                    }
+                }
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+@* <table class="table">
+    <thead>
+        <tr>
+            <th>
+                S.No.
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrgName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrgAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrgContact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrgEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrgImage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @if (Model.OrganizationList.Count >0)
+        {
+            @foreach (var item in Model.OrganizationList)
+            {
+                <tr>
+                    <td>
+                        @i
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrgName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrgAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrgContact)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrgEmail)
+                    </td>
+                    <td>
+
+@if (item.OrgImage != null)
+{
+    <img src="@item.OrgImage" height="100px" width="100px" />
+}
+                    </td>
+<td>
+    @Html.ActionLink("Edit", "Edit", new { id = item.OrganizationId }) |
+    @Html.ActionLink("Delete", "Delete", new { id = item.OrganizationId })
+</td>
+                </tr>
+                i++;
+            }
+
+        }
+        else
+        {
+<tr>
+    <td>No Records Found !!!</td>
+</tr>
+        }
+    </tbody>
+</table>
+ *@

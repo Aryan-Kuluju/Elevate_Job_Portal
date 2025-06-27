@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    /* Background effect */
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #1e3c72, #2a5298); /* blue gradient */
+        color: white;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Welcome container */
+    .welcome-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: white;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    /* Keyframe animation */
+    keyframes fadeIn {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+
+    .btn-lg {
+        margin: 10px;
+    }
+</style>
+
+<div class="welcome-container">
+    <h1 class="display-4">Welcome to <span style="color: #00d8ff;">Elevate Job Portal</span></h1>
+    <p class="lead">Your gateway to exciting career opportunities!</p>
+    <div>
+        <a class="btn btn-success btn-lg" href="/Identity/Account/Login">Login</a>
+        <a class="btn btn-outline-light btn-lg" href="/Identity/Account/Register">Register Now</a>
+    </div>
+</div>
